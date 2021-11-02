@@ -14,6 +14,8 @@ namespace _72HourProject.Controllers
     public class PostController : ApiController
     {
         private readonly UserDbContext _context = new UserDbContext();
+
+        [HttpPost]
         public async Task<IHttpActionResult> CreatePost([FromBody] Post model)
         {
             if (model is null)
