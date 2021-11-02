@@ -18,7 +18,11 @@ namespace _72HourProject.Models
 
 
         public string Text { get; set; }
+<<<<<<< Updated upstream
         public virtual List<Reply> Replies { get; set; }
+=======
+        public virtual List<Comment> UserComments { get; set; }
+>>>>>>> Stashed changes
         public Guid AuthorId { get; set; }
     }
 }

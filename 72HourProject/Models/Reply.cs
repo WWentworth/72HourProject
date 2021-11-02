@@ -7,7 +7,7 @@ using System.Web;
 
 namespace _72HourProject.Models
 {
-    public class Reply : Comment
+    public class Reply
     {
         [Key]
         public int Id { get; set; }
