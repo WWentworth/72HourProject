@@ -17,7 +17,7 @@ namespace _72HourProject.Controllers
         [HttpPost]
         public async Task<IHttpActionResult> PostComment ([FromBody] Comment model)
         {
-            try
+            try 
             {
 
                 if (model is null)
