@@ -10,8 +10,9 @@ namespace _72HourProject.Models
     {
         [Key]
         public int Id { get; set; }
-
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Text { get; set; }
         public virtual List<Comment> Comments { get; set; }
         public Guid AuthorId { get; set; }
