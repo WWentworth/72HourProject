@@ -7,7 +7,7 @@ using System.Web;
 
 namespace _72HourProject.Models
 {
-    public class Reply
+    public class Reply : Comment
     {
         [Key]
         public int Id { get; set; }
@@ -17,7 +17,7 @@ namespace _72HourProject.Models
         public virtual Comment Comment { get; set; }
 
 
-        public string Text { get; set; }
-        public Guid AuthorId { get; set; }
+        public string ReplyText { get; set; }
+        public Guid ReplyAuthorId { get; set; }
     }
 }

@@ -177,6 +177,18 @@
     <Compile Include="Migrations\202110312048381_InitialMigration.designer.cs">
       <DependentUpon>202110312048381_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111021748436_PostController.cs" />
+    <Compile Include="Migrations\202111021748436_PostController.designer.cs">
+      <DependentUpon>202111021748436_PostController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111021922114_replycontroller.cs" />
+    <Compile Include="Migrations\202111021922114_replycontroller.designer.cs">
+      <DependentUpon>202111021922114_replycontroller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111022023165_ReplyControllerGetAll.cs" />
+    <Compile Include="Migrations\202111022023165_ReplyControllerGetAll.designer.cs">
+      <DependentUpon>202111022023165_ReplyControllerGetAll.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Post.cs" />
@@ -271,6 +283,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202110312048381_InitialMigration.resx">
       <DependentUpon>202110312048381_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111021748436_PostController.resx">
+      <DependentUpon>202111021748436_PostController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111021922114_replycontroller.resx">
+      <DependentUpon>202111021922114_replycontroller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111022023165_ReplyControllerGetAll.resx">
+      <DependentUpon>202111022023165_ReplyControllerGetAll.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
