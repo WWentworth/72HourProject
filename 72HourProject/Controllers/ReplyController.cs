@@ -1,6 +1,7 @@
 ﻿using _72HourProject.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -26,7 +27,6 @@ namespace _72HourProject.Controllers
                 if (ModelState.IsValid)
                 {
                     _context.Replies.Add(model);
-                    //var changeCount =
                     await _context.SaveChangesAsync();
                     return Ok("Reply was created!");
                 }
@@ -36,11 +36,23 @@ namespace _72HourProject.Controllers
             {
                 return BadRequest(ModelState);
             }
-            //return BadRequest(ModelState);
         }
 
-       // [HttpGet]
-        //public async T
+        [HttpGet]
+        public async Task<IHttpActionResult> GetAllRepliesByComment([FromUri] Reply model)
+        {
+            List<Reply> replies = await _context.Replies.ToListAsync();
+
+            foreach (Reply reply in _context.Replies)
+            {
+                if (reply.CommentId == model.CommentId)
+                {
+                    return Ok(replies);
+                }
+            }
+            return BadRequest(ModelState);
+        }
+        
 
 
     }
