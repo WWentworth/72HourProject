@@ -42,24 +42,31 @@ namespace _72HourProject.Controllers
         public async Task<IHttpActionResult> GetAllRepliesByComment([FromUri] Reply model)
         {
             List<Reply> replies = await _context.Replies.ToListAsync();
+            //List<Comment> comments = await _context.Comments.ToListAsync();
 
-            if (model is null)
+            try
+            {
+                if (replies is null)
+                {
+                    return BadRequest("There was an error.");
+                }
+                if (ModelState.IsValid)
+                {
+                    foreach (Reply reply in _context.Replies)
+                    {
+                        if (reply.CommentId == model.CommentId)
+                        {
+                            return Ok(replies);
+                        }
+                    }
+
+                }
+                return BadRequest("There was an error.");
+            }
+            catch (Exception ex)
             {
                 return BadRequest("There was an error.");
             }
-            if (ModelState.IsValid)
-            {
-
-                foreach (Reply reply in _context.Replies)
-                {
-                    if (reply.CommentId == model.CommentId)
-                    {
-                        return Ok(replies);
-                    }
-                }
-
-            }
-            return BadRequest(ModelState);
         }
 
 

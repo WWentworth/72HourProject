@@ -185,6 +185,10 @@
     <Compile Include="Migrations\202111021922114_replycontroller.designer.cs">
       <DependentUpon>202111021922114_replycontroller.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111022023165_ReplyControllerGetAll.cs" />
+    <Compile Include="Migrations\202111022023165_ReplyControllerGetAll.designer.cs">
+      <DependentUpon>202111022023165_ReplyControllerGetAll.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Post.cs" />
@@ -285,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111021922114_replycontroller.resx">
       <DependentUpon>202111021922114_replycontroller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111022023165_ReplyControllerGetAll.resx">
+      <DependentUpon>202111022023165_ReplyControllerGetAll.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
