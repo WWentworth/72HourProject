@@ -36,7 +36,7 @@ namespace _72HourProject.Controllers
         public async Task<IHttpActionResult> GetAll()
         {
             List<Post> posts = await _context.Posts.ToListAsync();
-            return Ok();
+            return Ok(posts);
         }
     }
 }
