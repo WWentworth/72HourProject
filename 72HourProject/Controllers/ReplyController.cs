@@ -43,16 +43,25 @@ namespace _72HourProject.Controllers
         {
             List<Reply> replies = await _context.Replies.ToListAsync();
 
-            foreach (Reply reply in _context.Replies)
+            if (model is null)
             {
-                if (reply.CommentId == model.CommentId)
+                return BadRequest("There was an error.");
+            }
+            if (ModelState.IsValid)
+            {
+
+                foreach (Reply reply in _context.Replies)
                 {
-                    return Ok(replies);
+                    if (reply.CommentId == model.CommentId)
+                    {
+                        return Ok(replies);
+                    }
                 }
+
             }
             return BadRequest(ModelState);
         }
-        
+
 
 
     }
