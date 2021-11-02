@@ -14,47 +14,67 @@ namespace _72HourProject.Controllers
     {
         private readonly UserDbContext _context = new UserDbContext();
         //Post a comment
+        [HttpPost]
         public async Task<IHttpActionResult> PostComment ([FromBody] Comment model)
         {
-           if (model is null)
+            try
             {
-                return BadRequest("Your comment body cannot be empty.");
-            }
-           if(ModelState.IsValid)
-            {
-                _context.Comments.Add(model);
-                int changeXount = await _context.SaveChangesAsync();
-                return Ok("Comment was successfully posted");
+
+                if (model is null)
+                {
+                    return BadRequest("Your comment body cannot be empty.");
+                }
+                if (ModelState.IsValid)
+                {
+                    _context.Comments.Add(model);
+                    int changeXount = await _context.SaveChangesAsync();
+                    return Ok("Comment was successfully posted");
+                }
+
+                //If comment is invalid
+                return BadRequest(ModelState);
             }
 
-           //If comment is invalid
-            return BadRequest(ModelState);
+            catch (Exception ex)
+            {
+                return BadRequest(ModelState);
+            }
+
         }
 
         //Get Comments by Post Id
         // api/Comment/{id}
+        [HttpGet]
         public async Task<IHttpActionResult> GetAllCommentsByPost([FromUri] Comment model)
         {
-            List<Comment> comments = await _context.Comments.ToListAsync();
-
-            if (model is null)
+            try
             {
+
+                List<Comment> comments = await _context.Comments.ToListAsync();
+
+                if (model is null)
+                {
+                    return BadRequest("There was an error.");
+                }
+
+                if (ModelState.IsValid)
+                {
+                    foreach (Comment c in _context.Comments)
+                    {
+                        if (c.PostId == model.PostId)
+                        {
+                            return Ok(model);
+                        }
+                    }
+                }
+
                 return BadRequest("There was an error.");
             }
 
-            if (ModelState.IsValid)
+            catch (Exception ex)
             {
-                foreach (Comment c in _context.Comments)
-                {
-                    if (c.PostId == model.PostId)
-                    {
-                        return Ok(model);
-                    }
-                }
+                return BadRequest(ModelState);
             }
-
-            return BadRequest("There was an error.");
-
         }
     }
 }
