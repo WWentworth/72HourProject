@@ -18,7 +18,7 @@ namespace _72HourProject.Models
 
 
         public string Text { get; set; }
-        public virtual List<Reply> Replies { get; set; }
+        public virtual List<Comment> Comments { get; set; }
         public Guid AuthorId { get; set; }
     }
 }
